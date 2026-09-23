@@ -3,6 +3,7 @@ reg A,B;
 wire Y_NOT,Y_AND,Y_OR,Y_XOR;
 initial
 begin
+$dumpfile ("dump.vcd");
 $dumpvars (1, tb_gates_nand);
 #000 A=0; B=0;
 #100 A=0; B=1;

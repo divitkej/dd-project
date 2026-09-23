@@ -3,6 +3,7 @@ reg A,B,C,D;
 wire Y;
 initial
 begin
+$dumpfile ("dump.vcd");
 $dumpvars (1, tb_parity);
 #000 A=0; B=0; C=0; D=0;
 #100 A=0; B=0; C=0; D=1;

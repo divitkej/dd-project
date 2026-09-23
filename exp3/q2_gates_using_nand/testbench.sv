@@ -1,22 +1,14 @@
-// Testbench for basic gates using NAND, all input combinations
-module tb_gates_using_nand;
-  reg  A, B;
-  wire Y_NOT, Y_AND, Y_OR, Y_XOR;
-  integer i;
-
-  gates_using_nand uut (
-    .A(A), .B(B),
-    .Y_NOT(Y_NOT), .Y_AND(Y_AND), .Y_OR(Y_OR), .Y_XOR(Y_XOR)
-  );
-
+module tb;
+  reg a, b;
+  wire ynot, yand, yor, yxor;
+  gates_nand dut(a, b, ynot, yand, yor, yxor);
   initial begin
     $dumpfile("dump.vcd");
-    $dumpvars(0, tb_gates_using_nand);
-    $display("A B | NOT AND OR XOR");
-    for (i = 0; i < 4; i = i + 1) begin
-      {A, B} = i;
-      #10 $display("%b %b |  %b   %b   %b   %b", A, B, Y_NOT, Y_AND, Y_OR, Y_XOR);
-    end
+    $dumpvars(1);
+    a=0; b=0; #10;
+    a=0; b=1; #10;
+    a=1; b=0; #10;
+    a=1; b=1; #10;
     $finish;
   end
 endmodule

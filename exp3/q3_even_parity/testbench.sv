@@ -1,18 +1,14 @@
-// Testbench for 4-bit even parity generator, all 16 input combinations
-module tb_even_parity_gen;
-  reg  A, B, C, D;
-  wire P;
+module tb;
+  reg a, b, c, d;
+  wire p;
   integer i;
-
-  even_parity_gen uut (.A(A), .B(B), .C(C), .D(D), .P(P));
-
+  parity dut(a, b, c, d, p);
   initial begin
     $dumpfile("dump.vcd");
-    $dumpvars(0, tb_even_parity_gen);
-    $display("A B C D | P");
+    $dumpvars(1);
     for (i = 0; i < 16; i = i + 1) begin
-      {A, B, C, D} = i;
-      #10 $display("%b %b %b %b | %b", A, B, C, D, P);
+      {a, b, c, d} = i;
+      #10;
     end
     $finish;
   end

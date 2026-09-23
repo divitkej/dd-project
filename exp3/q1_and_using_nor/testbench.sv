@@ -1,19 +1,14 @@
-// Testbench for AND gate using NOR gates
-module tb_and_using_nor;
-  reg  A, B;
-  wire Y;
-  integer i;
-
-  and_using_nor uut (.A(A), .B(B), .Y(Y));
-
+module tb;
+  reg a, b;
+  wire y;
+  and_nor dut(a, b, y);
   initial begin
     $dumpfile("dump.vcd");
-    $dumpvars(0, tb_and_using_nor);
-    $display("A B | Y");
-    for (i = 0; i < 4; i = i + 1) begin
-      {A, B} = i;
-      #10 $display("%b %b | %b", A, B, Y);
-    end
+    $dumpvars(1);
+    a=0; b=0; #10;
+    a=0; b=1; #10;
+    a=1; b=0; #10;
+    a=1; b=1; #10;
     $finish;
   end
 endmodule

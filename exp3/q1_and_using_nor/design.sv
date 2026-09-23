@@ -1,11 +1,6 @@
-// Q1: 2-input AND gate using only 2-input NOR gates (structural)
-// Y = A & B = ~(~A | ~B) = NOR(NOR(A,A), NOR(B,B))
-module and_using_nor (
-  input  A, B,
-  output Y
-);
+module and_nor(input a, b, output y);
   wire w1, w2;
-  nor g1 (w1, A, A);   // w1 = ~A
-  nor g2 (w2, B, B);   // w2 = ~B
-  nor g3 (Y, w1, w2);  // Y  = ~(~A | ~B) = A & B
+  nor(w1, a, a);
+  nor(w2, b, b);
+  nor(y, w1, w2);
 endmodule

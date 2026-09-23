@@ -3,7 +3,6 @@ reg A,B;
 wire Y;
 initial
 begin
-$dumpfile ("dump.vcd");
 $dumpvars (1, tb_and_nor);
 #000 A=0; B=0;
 #100 A=0; B=1;

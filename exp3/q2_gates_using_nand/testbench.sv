@@ -1,14 +1,11 @@
 module tb;
-  reg a, b;
-  wire ynot, yand, yor, yxor;
-  gates_nand dut(a, b, ynot, yand, yor, yxor);
-  initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars(1);
-    a=0; b=0; #10;
-    a=0; b=1; #10;
-    a=1; b=0; #10;
-    a=1; b=1; #10;
-    $finish;
-  end
+reg A, B;
+wire Y_NOT, Y_AND, Y_OR, Y_XOR;
+gates_using_nand U1 (A, B, Y_NOT, Y_AND, Y_OR, Y_XOR);
+initial begin
+A = 0; B = 0; #10;
+A = 0; B = 1; #10;
+A = 1; B = 0; #10;
+A = 1; B = 1; #10;
+end
 endmodule

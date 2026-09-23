@@ -1,14 +1,11 @@
 module tb;
-  reg a, b;
-  wire y;
-  and_nor dut(a, b, y);
-  initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars(1);
-    a=0; b=0; #10;
-    a=0; b=1; #10;
-    a=1; b=0; #10;
-    a=1; b=1; #10;
-    $finish;
-  end
+reg A, B;
+wire Y;
+and_using_nor U1 (A, B, Y);
+initial begin
+A = 0; B = 0; #10;
+A = 0; B = 1; #10;
+A = 1; B = 0; #10;
+A = 1; B = 1; #10;
+end
 endmodule

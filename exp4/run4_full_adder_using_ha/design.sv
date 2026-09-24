@@ -5,7 +5,7 @@ assign S = A^B;
 assign C = A&B;
 endmodule
 
-module full_adder (Sum,Carry,A,B,Cin);
+module full_adder_ha (Sum,Carry,A,B,Cin);
 input A,B,Cin;
 output Sum,Carry;
 wire S0,C0,C1;

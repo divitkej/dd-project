@@ -10,5 +10,7 @@ endmodule
 module nand_using_mux (A, B, Y);
 input A, B;
 output Y;
-mux_2x1 M1(1'b0, 1'b1, A, Y);
+wire not_b;
+assign not_b = ~B;
+mux_2x1 M1(not_b, 1'b1, A, Y);
 endmodule

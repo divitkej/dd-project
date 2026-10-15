@@ -3,8 +3,8 @@ reg A, B;
 wire Y;
 initial
 begin
-$dumpfile ("dump.vcd");
-$dumpvars (1, tb_xor);
+$dumpfile("dump.vcd");
+$dumpvars(1, tb_xor);
 #000 A=0; B=0;
 #100 A=0; B=1;
 #100 A=1; B=0;
